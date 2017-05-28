@@ -39,7 +39,6 @@ def main(argv):
 
     if args.a:
         res = ankicli.anki_connect('guiAddCards')
-        print res
         if res == 0:
             print("Window launched.")
         return 0

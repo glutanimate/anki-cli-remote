@@ -1,0 +1,7 @@
+.sublime-backup/
+*.pyo
+*.pyc
+*.sublime-project
+*.sublime-workspace
+.hidden
+.directory

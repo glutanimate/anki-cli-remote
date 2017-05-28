@@ -1,0 +1,59 @@
+#! /usr/bin/env python2.7
+
+import sys
+import argparse
+import re
+import requests
+
+from ankicli import ankicli
+
+def parse_arguments(argv):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-b', const='deck:current', metavar="query", nargs='?',
+        help = "Launch Anki's card browser with an optional query")
+    parser.add_argument('-a', action="store_true", 
+        help = "Lauch Anki's AddCards window")
+
+    if not argv:
+        parser.print_help()
+        parser.exit()
+
+    args = parser.parse_args(argv)
+
+    return args
+
+
+def main(argv):
+
+    # Parse cli arguments
+    args = parse_arguments(argv)
+
+    try:
+        version = ankicli.anki_connect('version')
+        if version < 2:
+            error('anki-cli requires anki connect version 2 or greater')
+    except requests.exceptions.ConnectionError as e:
+        print("Could not contact anki-connect. Is Anki running? "
+            "Is the anki-connect plugin installed?\n\nDetails: {}".format(e))
+        sys.exit(1)
+
+    if args.a:
+        res = ankicli.anki_connect('guiAdd')
+        if res == 0:
+            print("Window launched.")
+        return 0
+
+    cards = ankicli.anki_connect('guiSearch', {"query": args.b.decode("utf-8")})
+
+    if not cards:
+        print("No search results found")
+    else:
+        print("{} card(s) found:\n{}".format(
+            str(len(cards)), ", ".join(list(str(i) for i in cards))))
+
+    # Return success
+    return 0
+
+# If this script is run from a shell then run main() and return the result.
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

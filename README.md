@@ -6,14 +6,14 @@ A command line interface for querying and managing Anki's user interface remotel
 
 *Ubuntu*
 
-1. Install my fork of [anki-connect](https://github.com/glutanimate/anki-connect/tree/gui-controls) and restart Anki
+1. Install [AnkiConnect](https://ankiweb.net/shared/info/2055492159) and restart Anki
 2. Clone this repository
 3. Install `python-requests`, e.g. via `sudo apt install python-requests`
 
 *Other platforms*
 
 1. Install python and pip, e.g. with `sudo apt install python python-pip`.
-2. Install my fork of [anki-connect](https://github.com/glutanimate/anki-connect/tree/gui-controls) and restart Anki
+2. Install [AnkiConnect](https://ankiweb.net/shared/info/2055492159) and restart Anki
 3. Clone this repository
 4. Run `pip install -r requirements.txt` in the project root directory
 

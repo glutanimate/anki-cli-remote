@@ -36,9 +36,6 @@ def anki_connect(method, params={}, debug=False):
 
     r.raise_for_status()
 
-    if r.json() is None:
-        raise Exception('Anki connect responded with null, this is normally an error')
-
     return r.json()
 
 

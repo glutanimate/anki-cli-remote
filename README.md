@@ -40,8 +40,6 @@ Run with `-h` for more details on other options.
 
 Licensed under the [GNU AGPL v3](https://www.gnu.org/licenses/agpl.html).
 
-This script would not not have been possible without the following open-source projects:
+This project is largely based on [ankicli](https://github.com/davidshepherd7/ankicli) by [David Sheperd](https://github.com/davidshepherd7) which is also licensed under GNU AGPLv3.
 
-- [ankicli](https://github.com/davidshepherd7/ankicli) by [David Shepherd](https://github.com/davidshepherd7). Licensed under the GNU AGPLv3.
-- [AnkiConnect](https://github.com/FooSoft/anki-connect). Copyright (c) 2016 [Alex Yatskov](https://github.com/FooSoft). Licensed under the GNU GPL.
-
+I would also like to extend my thanks to [Alex Yatskov](https://github.com/FooSoft) for providing us with an easy-to-use API to Anki in the form of [AnkiConnect](https://github.com/FooSoft/anki-connect).

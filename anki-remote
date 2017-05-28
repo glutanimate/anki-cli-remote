@@ -38,12 +38,13 @@ def main(argv):
         sys.exit(1)
 
     if args.a:
-        res = ankicli.anki_connect('guiAdd')
+        res = ankicli.anki_connect('guiAddCards')
+        print res
         if res == 0:
             print("Window launched.")
         return 0
 
-    cards = ankicli.anki_connect('guiSearch', {"query": args.b.decode("utf-8")})
+    cards = ankicli.anki_connect('guiBrowse', {"query": args.b.decode("utf-8")})
 
     if not cards:
         print("No search results found")
